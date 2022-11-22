@@ -11,7 +11,7 @@ import type { SwapiResponse } from "types/SwapiResponse";
 import { SWAPI_RESOURCES } from "utils/constants";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  let personData: SwapiResponse<Person> | [] = [];
+  let personData: Person | undefined = undefined;
   try {
     if (Array.isArray(context.params?.id)) {
       throw new Error("Parameter received as string[], expected a string");
