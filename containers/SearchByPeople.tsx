@@ -1,3 +1,5 @@
+import ClockIcon from "components/ClockIcon";
+import Layout from "components/Layout";
 import { getPeopleByCriteria } from "helpers/swapiResources";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -17,8 +19,9 @@ const SearchByPeople: FunctionComponent = () => {
   const hasData = data?.results.length && data.results.length > 0;
 
   return (
-    <main>
-      {isValidating && <span>Loading...</span>}
+    <Layout>
+      {/* {isValidating && <ClockIcon />} */}
+      <ClockIcon />
       {hasData &&
         data.results.map((person) => {
           const id = person.url.split("/").at(-2);
@@ -30,7 +33,7 @@ const SearchByPeople: FunctionComponent = () => {
             </Link>
           );
         })}
-    </main>
+    </Layout>
   );
 };
 

@@ -1,3 +1,4 @@
+import Layout from "components/Layout";
 import { getPersonById } from "helpers/swapiResources";
 import { useRouter } from "next/router";
 import type { FunctionComponent } from "react";
@@ -10,7 +11,7 @@ const PersonByIdContainer: FunctionComponent = () => {
   const { data } = useSWR([SWAPI_RESOURCES.people, query.id], () =>
     swrFetcher(getPersonById(query?.id as string))
   );
-  return <div>{data?.name}</div>;
+  return <Layout>{data?.name}</Layout>;
 };
 
 export default PersonByIdContainer;
